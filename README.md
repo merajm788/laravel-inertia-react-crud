@@ -34,6 +34,10 @@ composer install
 
 npm install
 ```
+```
+
+npm run build
+```
 * Alternatively, if you prefer Yarn:
 ```
 yarn install
