@@ -38,13 +38,10 @@ class TaskController extends Controller
             ]);
         }
     }
-    
-    
 
     public function emptyTrash()
     {
-        $trashedTasks = Task::onlyTrashed();
-        $trashedTasks->forceDelete();
+        Task::onlyTrashed()->forceDelete();
         return redirect()->back()->with('success', 'Trash cleared successfully!');
     }
 

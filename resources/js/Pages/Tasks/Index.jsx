@@ -19,8 +19,8 @@ export default function Index({ auth, tasks, laravelVersion, phpVersion }) {
         if (confirm('Are you sure you want to empty the trash?')) {
             post(route('tasks.emptyTrash'), {
                 preserveScroll: true,
-                onSuccess: () => {
-                    setFlashMessage('Trash cleared successfully.');
+                onSuccess: (response) => {
+                    setFlashMessage(response.success || 'Task deleted successfully.');
                     setFilteredTasks(prevTasks => prevTasks.filter(task => !task.deleted_at));
                 },
                 onError: (error) => {
